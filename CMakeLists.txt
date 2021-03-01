@@ -54,11 +54,10 @@ add_message_files(
 )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  AddTwoIntegers.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -160,7 +159,10 @@ include_directories(
 # Mark executable scripts (Python etc.) for installation
 # in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/talker.py scripts/listener.py
+  scripts/talker.py
+  scripts/listener.py
+  scripts/iot_sensor_data_publisher.py
+  scripts/iot_sensor_data_subscriber.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
