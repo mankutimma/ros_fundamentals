@@ -5,7 +5,7 @@ import random
 
 
 def publish():
-    # name is topic name, type of the message to be published is String
+    # name is topic name, data_class is type of the message to be published: IoTSensor
     publisher = rospy.Publisher(name="iot_sensor_data_topic", data_class=IoTSensor, queue_size=10)
     # name is node name
     rospy.init_node(name="iot_sensor_data_publisher", anonymous=True)
