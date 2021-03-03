@@ -5,10 +5,16 @@ from ros_fundamentals.srv import AddTwoIntegers
 
 
 def main(x, y):
-    client = rospy.ServiceProxy(name="addition_service", service_class=AddTwoIntegers)
-    rospy.init_node(name="addition_client")
-    respone_from_server = client(x, y)
-    rospy.loginfo("The response from server is {}".format(respone_from_server))
+    # wait until service is available. service is name of service
+    rospy.wait_for_service(service="addition_service")
+    try:
+        client = rospy.ServiceProxy(name="addition_service", service_class=AddTwoIntegers)
+        rospy.init_node(name="addition_client")
+        respone_from_server = client(x, y)
+    except rospy.ServiceException as exc:
+        rospy.loginfo("Service call failed with exception: {}".format(exc))
+    else:
+        rospy.loginfo("The response from server is \"{}\"".format(respone_from_server))
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Provide 2 integers to be added")
@@ -17,7 +23,5 @@ def parse_arguments():
 
 if __name__=="__main__":
     args = parse_arguments()
-
-    print(args.integers[0], args.integers[1])
     main(args.integers[0], args.integers[1])
 
