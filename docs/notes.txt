@@ -1,0 +1,28 @@
+ROS (Robotic Operating System)-
+1.Library/framework for writing robot apps
+2.It is a Message passing system(Quora)
+3.It is Like Middleware
+4.It has HAL, device drivers, Message passing, packet management etc.,
+5.It is a distributed framework of processes (aka Nodes) that enables executables to be individually designed and loosely coupled at runtime(graph)
+
+
+Design:
+1.Philosphy : Not a framework with most features, rather, a library with the primary goal of supporting code reuse in robotics R&D.
+2.Computation graph model : ROS-master(process that registers nodes and establishes link with rest of the nodes), edges, nodes....
+3.Nodes : Processes represented as nodes in a graph.
+4.Topics : Buses represented as edges in a graph. (Used for continuous data stream. Ex: Sensory data, actuation commands)
+5.Services : Actions by processes that have a single result. (Used for quick/specific actions/procedural calls. Ex:capture an image)
+6.Parameter server : Database shared by nodes. Updates controlled by ROS-master. Example data stored on it : robot weight and not continuous stream data
+
+Tools : They augment/increase ROS's core functionality.They are robot-agnostic.
+1.rviz : 3D-visualization tool. ex: To visualize sensory data, robot environment.
+2.catkin : Build tool based on CMake. Replaced rosbuild since ROS-Groovy distribution. Cross-platform, language independent and open source.
+3.rosbag : command line tool for recording and playing-back ROS message data. Uses a file format called bag. GUI interface to rosbag: rqt_bag.
+4.rosbash : augments functionality of bash. roscd for cd, roscp for cp and rosls for ls.
+5.roslaunch : to launch ROS nodes both locally and remotely. Can configure nodes, automate their startup etc., as well using XML.
+
+
+
+Refer ros.org or wikipedia for more details
+
+--------------------------------------------------------------
