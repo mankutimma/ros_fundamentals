@@ -14,14 +14,15 @@ def main(x, y):
     except rospy.ServiceException as exc:
         rospy.loginfo("Service call failed with exception: {}".format(exc))
     else:
-        rospy.loginfo("The response from server is \"{}\"".format(respone_from_server))
+        rospy.loginfo('The response from server is "{}"'.format(respone_from_server))
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Provide 2 integers to be added")
     parser.add_argument("-i", "--integers", type=int, nargs=2, help="The first integer", required=True)
     return parser.parse_args()
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     args = parse_arguments()
     main(args.integers[0], args.integers[1])
-
